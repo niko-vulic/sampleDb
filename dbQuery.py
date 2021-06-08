@@ -7,6 +7,7 @@ class DbQuery:
 
 
 
+
         if self.ProjectConfig.nameColumnIndex < 0 or self.ProjectConfig.priceColumnIndex < 0:
             raise Exception("Database configured incorrectly. No name or price column found!")
 
