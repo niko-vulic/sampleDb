@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8633ca09-084e-4e68-aa8e-98c27019cbdc" name="Default Changelist" comment="1.0">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.txt" beforeDir="false" afterPath="$PROJECT_DIR$/database/db.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history.md" beforeDir="false" afterPath="$PROJECT_DIR$/history.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +22,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="73a56e6ab8044fe51f0796e4b9d5567f762ce5ba" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -27,17 +37,40 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="4115a146-fbe4-422b-99b1-1193fb5c08b9" />
+        <option name="url" value="https://github.com/niko-vulic/sampleDb" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="ProjectId" id="1prOQxz0nItmYm2XBJXiVLWMzSR" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings sdk-home="$USER_HOME$/PycharmProjects/pythonProject/venv/bin/python" working-directory="$PROJECT_DIR$">
+        <option name="mySdkHome" value="$USER_HOME$/PycharmProjects/pythonProject/venv/bin/python" />
+        <option name="myWorkingDirectory" value="$PROJECT_DIR$" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/config/" />
+      <recent name="$PROJECT_DIR$/database/" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.dbQuery">
     <configuration name="dbQuery" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -104,7 +137,21 @@
       <option name="project" value="LOCAL" />
       <updated>1623174694489</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="1.0">
+      <created>1623175498611</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1623175498611</updated>
+    </task>
+    <task id="LOCAL-00003" summary="1.0">
+      <created>1623175552300</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1623175552300</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -147,6 +194,7 @@
         <entry key="25622337-03a4-40df-a23f-db697af83ecb" value="TOOL_WINDOW" />
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1.0" />

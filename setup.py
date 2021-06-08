@@ -6,7 +6,7 @@ class ProjectConfig:
     def __init__(self, printDebugStatements = False):
         # Read the ini file from local dir
         config = configparser.ConfigParser()
-        config.read('config.ini')
+        config.read('config/config.ini')
 
         # Set class-local params
         self.delimiter = config['DEFAULT']['delimiter']
