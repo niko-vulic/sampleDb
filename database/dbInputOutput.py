@@ -1,9 +1,7 @@
 import sys
 import os
 
-
-# import config.configHandler
-
+# Parse the DB details from txt file
 def read_db(databaseConfig, print_debug_statements=False):
     parsedDb = []
 
@@ -26,16 +24,13 @@ def read_db(databaseConfig, print_debug_statements=False):
     return parsedDb
 
 
-class DbInputOutput:
-    # Parse the DB details from txt file
+# Write the current DB contents out back to the file
+def write_db(self, database, printDebugStatements=False):
+    dbFile = open(self.filename, 'w')
+    lines = []
+    for item in database:
+        lines.append(str(item[0]) + self.delimiter + str(item[1]) + self.delimiter + str(item[2]))
 
-    # Write the current DB contents out back to the file
-    def write_db(self, database, printDebugStatements=False):
-        dbFile = open(self.filename, 'w')
-        lines = []
-        for item in database:
-            lines.append(str(item[0]) + self.delimiter + str(item[1]) + self.delimiter + str(item[2]))
-
-        # Write out to file
-        dbFile.write('\n'.join(lines))
-        dbFile.close()
+    # Write out to file
+    dbFile.write('\n'.join(lines))
+    dbFile.close()
