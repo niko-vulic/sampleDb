@@ -1,11 +1,25 @@
-from config import configHandler
-from database import dbInputOutput
+import config.configHandler
+import database.dbInputOutput
+
 
 class DbInterface:
-    def __init__(self, printDebugStatements = False):
-        self.databaseConfig = configHandler.ConfigHandler(printDebugStatements)
-        self.inMemoryDatabase = dbCommands.parseDb(self.databaseConfig, printDebugStatements)
+    def __init__(self, print_debug_statements=False):
 
-        if printDebugStatements:
+        # Initialize the config first
+        self.databaseConfig = config.configHandler.ConfigHandler(print_debug_statements)
+        self.version = self.databaseConfig.codeVersion
+        if print_debug_statements:
             print('Database Config Initialized')
-            print('NameColumnIndex:' + str(self.databaseConfig.nameColumnIndex))
+            print('Database Code Version : ' + str(self.version))
+            print('DatabaseConfig:' + str(self.databaseConfig))
+
+        # Initialize the In-Memory Database
+        self.inMemoryDatabase = database.dbInputOutput.read_db(self.databaseConfig, print_debug_statements)
+
+        # Read user commands
+        print('--- Database Project V:' + str(self.version) + ' ready ---')
+        userCommand = ''
+        while userCommand != 'exit':
+            userCommand = input("Command:")
+
+        print('--- Database Project V:' + str(self.version) + ' terminated ---')

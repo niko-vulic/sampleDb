@@ -8,7 +8,9 @@ class ConfigHandler:
         # Read the ini file from local dir
         config = configparser.ConfigParser()
         config.read('config/config.ini')
-        #print('Dummy')
+
+        # Set version
+        self.codeVersion = config['DEFAULT']['codeVersion']
 
         # Set class-local params
         self.delimiter = config['DEFAULT']['delimiter']
