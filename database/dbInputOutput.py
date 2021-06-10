@@ -9,7 +9,7 @@ class DatabaseItem:
         self.type = type
 
     def __repr__(self):
-        return 'Item name: ' + self.name + ', price: ' + self.price + ' , type:' + self.type
+        return 'Item name: ' + self.name + ', price: ' + str(self.price) + ' , type:' + self.type
 
 
 # Parse the DB details from txt file

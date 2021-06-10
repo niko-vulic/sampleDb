@@ -1,3 +1,7 @@
+1.5.2
+---
+- Improved upon ADD functionality to parse user input with exception handling and search for an existing item. Next step: fully implement to ADD or UPDATE the inputted item
+
 1.5
 ---
 - Created a [databaseItem] class to better represent the object, rather than parsing over a list and column indices. This makes it easier to iterate over the database rather than having to pass the databaseConfiguration object into each method and calculate column indices. 
