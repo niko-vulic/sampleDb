@@ -1,9 +1,9 @@
 import config.configHandler
+import config.dbConstants
 
-def findItem(itemName, dbConfig, database):
-    nameColumnIndex = dbConfig.get_column(config.configHandler.COLUMN_NAME)
+def findItem(itemName, database):
     for item in database:
-        if item[nameColumnIndex] == itemName:
+        if item.name == itemName:
             return item
     return None
 

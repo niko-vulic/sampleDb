@@ -1,17 +1,15 @@
 import database.dbCommands
 
-USER_INPUT_INTRO = "Type 'exit' to quit or 'help' for a list of commands'"
+USER_INPUT_INTRO = "Type 'exit' to quit or 'help' for a list of commands"
 
 EXIT = 'exit'
 FIND = 'find'
 HELP = ['help', 'h']
 
 class CommandInterpreter:
-    def __init__(self, dbConfig, inMemoryDatabase, print_debug_statements=False):
-        self.input = ''
+    def __init__(self, inMemoryDatabase, print_debug_statements=False):
         self.print_debug_statements = print_debug_statements
         self.inMemoryDatabase = inMemoryDatabase
-        self.dbConfig = dbConfig
 
         if print_debug_statements:
             print('DEBUG - CommandInterpreter - ON')
@@ -33,5 +31,5 @@ class CommandInterpreter:
             print('EXIT command received. Terminating...')
         elif input_string == FIND:
             itemToFind = input('Find which item in database?:')
-            item = database.dbCommands.findItem(itemToFind, self.dbConfig, self.inMemoryDatabase)
+            item = database.dbCommands.findItem(itemToFind, self.inMemoryDatabase)
             print(item)
