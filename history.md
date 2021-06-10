@@ -1,3 +1,7 @@
+1.4.2
+---
+- Added constants to class configHandler for column names to be re-used in userInputInterpreter
+
 1.4.1
 ---
 - Continue to build command interpreter. Move functionality from dbInterface to userInputInterpreter sub-class

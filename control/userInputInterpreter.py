@@ -7,21 +7,24 @@ FIND = 'find'
 HELP = ['help', 'h']
 
 class CommandInterpreter:
-    def __init__(self, inMemoryDatabase, print_debug_statements=False):
+    def __init__(self, dbConfig, inMemoryDatabase, print_debug_statements=False):
         self.input = ''
         self.print_debug_statements = print_debug_statements
         self.inMemoryDatabase = inMemoryDatabase
+        self.dbConfig = dbConfig
 
         if print_debug_statements:
             print('DEBUG - CommandInterpreter - ON')
 
+    # Main method to loop over user input
     def init_input_reader(self):
         print(USER_INPUT_INTRO)
         command = ''
-        while command != 'exit':
+        while command != EXIT:
             command = input("Command:")
             self.parse_command(command)
 
+    # Command parse helper method
     def parse_command(self, input_string: str) -> None:
         if self.print_debug_statements:
             print('DEBUG - CommandInterpreter - inputString is:' + input_string)
@@ -30,3 +33,5 @@ class CommandInterpreter:
             print('EXIT command received. Terminating...')
         elif input_string == FIND:
             itemToFind = input('Find which item in database?:')
+            item = database.dbCommands.findItem(itemToFind, self.dbConfig, self.inMemoryDatabase)
+            print(item)

@@ -1,3 +1,12 @@
+import config.configHandler
+
+def findItem(itemName, dbConfig, database):
+    nameColumnIndex = dbConfig.get_column(config.configHandler.COLUMN_NAME)
+    for item in database:
+        if item[nameColumnIndex] == itemName:
+            return item
+    return None
+
 class DbCommands:
     ###########################
     ## Database functions below

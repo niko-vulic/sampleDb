@@ -2,6 +2,10 @@ import configparser
 import sys
 import os
 
+COLUMN_NAME = 'name'
+COLUMN_PRICE = 'price'
+COLUMN_TYPE = 'type'
+
 
 class DatabaseConfiguration:
     def __init__(self, printDebugStatements=False):
@@ -18,9 +22,9 @@ class DatabaseConfiguration:
         self.filename = config['DEFAULT']['filename']
         self.columns = self.format.split(self.delimiter)
 
-        self.nameColumnIndex = self.get_column('name')
-        self.priceColumnIndex = self.get_column('price')
-        self.typeColumnIndex = self.get_column('type')
+        self.nameColumnIndex = self.get_column(COLUMN_NAME)
+        self.priceColumnIndex = self.get_column(COLUMN_PRICE)
+        self.typeColumnIndex = self.get_column(COLUMN_TYPE)
 
         # Debug statements
         if printDebugStatements:
