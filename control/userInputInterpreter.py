@@ -3,13 +3,18 @@ import database.dbInputOutput
 
 USER_INPUT_INTRO = "Type 'exit' to quit or 'help' for a list of commands"
 USER_INPUT_GOODBYE = 'EXIT command received. Terminating...'
+HELP_COMMANDS_LIST = 'Available commands: exit, find, add, list'
 
-HELP_COMMANDS_LIST = 'Available commands: exit, find, add'
-
+HELP = 'help'
 EXIT = 'exit'
+
 FIND = 'find'
 ADD = 'add'
-HELP = 'help'
+LIST = 'list'
+DELETE = 'delete'
+
+ANSWER_NO = 'n'
+ANSWER_YES = 'y'
 
 
 class CommandInterpreter:
@@ -33,7 +38,7 @@ class CommandInterpreter:
         if self.print_debug_statements:
             print('DEBUG - CommandInterpreter - inputString is:' + input_string)
 
-        # Break condition
+        # EXIT command - Break condition
         if input_string == EXIT:
             print(USER_INPUT_GOODBYE)
 
@@ -43,8 +48,8 @@ class CommandInterpreter:
 
         # FIND command takes an additional parameter, then performs a search and displays the result
         elif input_string == FIND:
-            itemToFind = input('Find which item in database?:')
-            item = database.dbCommands.findItem(itemToFind, self.inMemoryDatabase)
+            item_name = input('Find which item in database?:')
+            item = database.dbCommands.findItem(item_name, self.inMemoryDatabase)
             if item:
                 print('Found! ' + repr(item))
             else:
@@ -52,19 +57,42 @@ class CommandInterpreter:
 
         # ADD command - adds or updates an existing item in DB
         elif input_string == ADD:
-            itemToAdd = input('Add a new item. Format: name price type. ie: apple 2.99 fruit:')
-            tempItem = generate_temporary_item_from_input(itemToAdd)
-            #print('Temp item before DB add:' + repr(tempItem))
+            item_to_add = input('Add a new item. Format: name price type. ie: apple 2.99 fruit:')
+            temp_item = generate_temporary_item_from_input(item_to_add)
+            # print('Temp item before DB add:' + repr(tempItem))
 
             # Only continue if the item was able to be parsed
-            if tempItem:
-                database_searched_item = database.dbCommands.findItem(tempItem.name, self.inMemoryDatabase)
-                #print('Item searched from DB:' + repr(database_searched_item))
+            if temp_item:
+                database_searched_item = database.dbCommands.findItem(temp_item.name, self.inMemoryDatabase)
+                # print('Item searched from DB:' + repr(database_searched_item))
 
                 if database_searched_item:
-                    print('Item already exists in database!')
+                    update_item_answer = input('Item already exists in database! Update with new price and type? y/n')
+
+                    if parse_yes_no_answer(update_item_answer):
+                        database.dbCommands.updateItem(temp_item, self.inMemoryDatabase)
+                        print('Item: ' + temp_item.name + ' has been updated')
+                    else:
+                        print('Item: ' + temp_item.name + ' has not been updated')
                 else:
-                    print('Adding item: ' + tempItem.name + ' to database')
+                    print('Adding item: ' + temp_item.name + ' to database')
+                    database.dbCommands.addItem(temp_item, self.inMemoryDatabase)
+
+        # LIST command - list all items from the DB using their string representation
+        elif input_string == LIST:
+            for database_item in self.inMemoryDatabase:
+                print(repr(database_item))
+
+
+def parse_yes_no_answer(input_string) -> bool:
+    """Force user to input either 'y' or 'n'"""
+    while not (input_string == ANSWER_NO or input_string == ANSWER_YES):
+        input_string = input('Invalid answer. y/n?')
+
+    if input_string == ANSWER_YES:
+        return True
+    else:
+        return False
 
 
 def generate_temporary_item_from_input(input_string):

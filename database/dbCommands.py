@@ -8,6 +8,20 @@ def findItem(itemName, database):
             return item
     return None
 
+
+def addItem(item, database):
+    """Appends an item to the end of the database"""
+    database.append(item)
+
+
+def updateItem(new_item, database):
+    """Updates an item to the end of the database"""
+    for item in database:
+        if item.name == new_item.name:
+            item.price = new_item.price
+            item.type = new_item.type
+
+
 class DbCommands:
     ###########################
     ## Database functions below

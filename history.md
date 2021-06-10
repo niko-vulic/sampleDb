@@ -1,3 +1,8 @@
+1.5.3
+---
+- Added LIST command functionality to verify database contents to be able to proceed on ADD functionality.
+- Fully implemented ADD and UPDATE functionality to UI and DB operations
+
 1.5.2
 ---
 - Improved upon ADD functionality to parse user input with exception handling and search for an existing item. Next step: fully implement to ADD or UPDATE the inputted item
