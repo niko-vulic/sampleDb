@@ -1,6 +1,11 @@
+1.5
+---
+- Created a [databaseItem] class to better represent the object, rather than parsing over a list and column indices. This makes it easier to iterate over the database rather than having to pass the databaseConfiguration object into each method and calculate column indices. 
+
 1.4.2
 ---
 - Added constants to class configHandler for column names to be re-used in userInputInterpreter
+
 
 1.4.1
 ---

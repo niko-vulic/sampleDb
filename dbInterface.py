@@ -15,10 +15,11 @@ class DbInterface:
             print('DatabaseConfig:' + str(self.dbConfig))
 
         # Initialize the In-Memory Database
-        self.inMemoryDatabase = database.dbInputOutput.read_db(self.dbConfig, print_debug_statements)
+        self.parsedDatabase = database.dbInputOutput.read_db(self.dbConfig, print_debug_statements)
+        self.inMemoryDatabase = database.dbInputOutput.generate_object_db_representation(self.dbConfig, self.parsedDatabase, print_debug_statements)
 
         print('--- Database Project V:' + str(self.version) + ' ready ---')
         # Read user commands
-        self.inputInterpreter = control.userInputInterpreter.CommandInterpreter(self.dbConfig, self.inMemoryDatabase, print_debug_statements)
+        self.inputInterpreter = control.userInputInterpreter.CommandInterpreter(self.inMemoryDatabase, print_debug_statements)
         self.inputInterpreter.init_input_reader()
         print('--- Database Project V:' + str(self.version) + ' terminated ---')
