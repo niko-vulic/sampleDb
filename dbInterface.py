@@ -1,5 +1,6 @@
 import config.configHandler
 import database.dbInputOutput
+import control.userInputInterpreter
 
 
 class DbInterface:
@@ -16,10 +17,8 @@ class DbInterface:
         # Initialize the In-Memory Database
         self.inMemoryDatabase = database.dbInputOutput.read_db(self.dbConfig, print_debug_statements)
 
-        # Read user commands
         print('--- Database Project V:' + str(self.version) + ' ready ---')
-        userCommand = ''
-        while userCommand != 'exit':
-            userCommand = input("Command:")
-
+        # Read user commands
+        self.inputInterpreter = control.userInputInterpreter.CommandInterpreter(self.inMemoryDatabase, print_debug_statements)
+        self.inputInterpreter.init_input_reader()
         print('--- Database Project V:' + str(self.version) + ' terminated ---')

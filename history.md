@@ -1,3 +1,11 @@
+1.4.1
+---
+- Continue to build command interpreter. Move functionality from dbInterface to userInputInterpreter sub-class
+
+1.4
+---
+- Begin to create a command interpreter which can call dbCommands.py to execute certain commands on the IMDB (in-memory database)
+
 1.3
 ---
 - Got packages somewhat working. Still don't fully understand them
