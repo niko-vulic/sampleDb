@@ -2,17 +2,17 @@ import sys
 import os
 
 # Parse the DB details from txt file
-def read_db(databaseConfig, print_debug_statements=False):
+def read_db(dbConfig, print_debug_statements=False):
     parsedDb = []
 
     if print_debug_statements:
         print('Parsing the DB')
-        print(databaseConfig.columns)
+        print(dbConfig.columns)
 
     # Read each line in the file and split the data into columns
-    dbFile = open(databaseConfig.filename, 'r')
+    dbFile = open(dbConfig.filename, 'r')
     for line in dbFile:
-        formattedLine = line.strip().split(databaseConfig.delimiter)
+        formattedLine = line.strip().split(dbConfig.delimiter)
         parsedDb.append(formattedLine)
 
         if print_debug_statements:
@@ -25,7 +25,7 @@ def read_db(databaseConfig, print_debug_statements=False):
 
 
 # Write the current DB contents out back to the file
-def write_db(self, database, printDebugStatements=False):
+def write_db(self, database, print_debug_statements=False):
     dbFile = open(self.filename, 'w')
     lines = []
     for item in database:

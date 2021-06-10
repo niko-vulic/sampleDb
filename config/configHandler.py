@@ -3,7 +3,7 @@ import sys
 import os
 
 
-class ConfigHandler:
+class DatabaseConfiguration:
     def __init__(self, printDebugStatements=False):
         # Read the ini file from local dir
         config = configparser.ConfigParser()
