@@ -2,6 +2,7 @@ import config.configHandler
 import config.dbConstants
 
 def findItem(itemName, database):
+    """Returns an item from the DB if it exists, else None"""
     for item in database:
         if item.name == itemName:
             return item
