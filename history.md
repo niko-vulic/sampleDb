@@ -1,3 +1,8 @@
+1.5.4
+---
+- Added DELETE functionality. Command interpreter complete. Next task: write DB per config, add additional commands for CONFIG + LOGGING setup
+- Refactor dbCommands.py to satisfy PEP8 styling
+
 1.5.3
 ---
 - Added LIST command functionality to verify database contents to be able to proceed on ADD functionality.

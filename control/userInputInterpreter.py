@@ -3,7 +3,7 @@ import database.dbInputOutput
 
 USER_INPUT_INTRO = "Type 'exit' to quit or 'help' for a list of commands"
 USER_INPUT_GOODBYE = 'EXIT command received. Terminating...'
-HELP_COMMANDS_LIST = 'Available commands: exit, find, add, list'
+HELP_COMMANDS_LIST = 'Available commands: exit, find, add, list, delete'
 
 HELP = 'help'
 EXIT = 'exit'
@@ -49,13 +49,13 @@ class CommandInterpreter:
         # FIND command takes an additional parameter, then performs a search and displays the result
         elif input_string == FIND:
             item_name = input('Find which item in database?:')
-            item = database.dbCommands.findItem(item_name, self.inMemoryDatabase)
+            item = database.dbCommands.find_item(item_name, self.inMemoryDatabase)
             if item:
                 print('Found! ' + repr(item))
             else:
                 print("Item '" + itemToFind + "' cannot be found!")
 
-        # ADD command - adds or updates an existing item in DB
+        # ADD + UPDATE command - adds or updates an existing item in DB
         elif input_string == ADD:
             item_to_add = input('Add a new item. Format: name price type. ie: apple 2.99 fruit:')
             temp_item = generate_temporary_item_from_input(item_to_add)
@@ -63,25 +63,35 @@ class CommandInterpreter:
 
             # Only continue if the item was able to be parsed
             if temp_item:
-                database_searched_item = database.dbCommands.findItem(temp_item.name, self.inMemoryDatabase)
+                database_searched_item = database.dbCommands.find_item(temp_item.name, self.inMemoryDatabase)
                 # print('Item searched from DB:' + repr(database_searched_item))
 
                 if database_searched_item:
                     update_item_answer = input('Item already exists in database! Update with new price and type? y/n')
 
                     if parse_yes_no_answer(update_item_answer):
-                        database.dbCommands.updateItem(temp_item, self.inMemoryDatabase)
+                        database.dbCommands.update_item(temp_item, self.inMemoryDatabase)
                         print('Item: ' + temp_item.name + ' has been updated')
                     else:
                         print('Item: ' + temp_item.name + ' has not been updated')
                 else:
                     print('Adding item: ' + temp_item.name + ' to database')
-                    database.dbCommands.addItem(temp_item, self.inMemoryDatabase)
+                    database.dbCommands.add_item(temp_item, self.inMemoryDatabase)
 
         # LIST command - list all items from the DB using their string representation
         elif input_string == LIST:
             for database_item in self.inMemoryDatabase:
                 print(repr(database_item))
+
+        # DELETE command - remove an item from DB
+        elif input_string == DELETE:
+            item_to_delete_name = input('Delete which item in database?:')
+            if database.dbCommands.delete_item(item_to_delete_name, self.inMemoryDatabase):
+                print('Item: ' + item_to_delete_name + ' has been deleted!')
+            else:
+                print('Item: ' + item_to_delete_name + ' does not exist in database, cannot be deleted!')
+
+
 
 
 def parse_yes_no_answer(input_string) -> bool:
