@@ -92,8 +92,6 @@ class CommandInterpreter:
                 print('Item: ' + item_to_delete_name + ' does not exist in database, cannot be deleted!')
 
 
-
-
 def parse_yes_no_answer(input_string) -> bool:
     """Force user to input either 'y' or 'n'"""
     while not (input_string == ANSWER_NO or input_string == ANSWER_YES):

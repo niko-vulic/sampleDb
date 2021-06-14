@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8633ca09-084e-4e68-aa8e-98c27019cbdc" name="Default Changelist" comment="1.5.3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/control/userInputInterpreter.py" beforeDir="false" afterPath="$PROJECT_DIR$/control/userInputInterpreter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/dbCommands.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/dbCommands.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/history.md" beforeDir="false" afterPath="$PROJECT_DIR$/history.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/dbInputOutput.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/dbInputOutput.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbInterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/dbInterface.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

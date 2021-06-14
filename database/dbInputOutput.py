@@ -21,14 +21,14 @@ def read_db(dbConfig, print_debug_statements=False):
         print(dbConfig.columns)
 
     # Read each line in the file and split the data into columns
-    dbFile = open(dbConfig.filename, 'r')
-    for line in dbFile:
+    db_file = open(dbConfig.filename, 'r')
+    for line in db_file:
         formattedLine = line.strip().split(dbConfig.delimiter)
         parsedDb.append(formattedLine)
 
         if print_debug_statements:
             print(formattedLine)
-    dbFile.close()
+    db_file.close()
 
     if print_debug_statements:
         print(parsedDb)
@@ -48,12 +48,12 @@ def generate_object_db_representation(dbConfig, parsedDb, print_debug_statements
     return database
 
 # Write the current DB contents out back to the file
-def write_db(self, database, print_debug_statements=False):
-    dbFile = open(self.filename, 'w')
+def write_db(dbConfig, database, print_debug_statements=False):
+    db_file = open(dbConfig.filename, 'w')
     lines = []
     for item in database:
-        lines.append(str(item[0]) + self.delimiter + str(item[1]) + self.delimiter + str(item[2]))
+        lines.append(str(item.name) + dbConfig.delimiter + str(item.price) + dbConfig.delimiter + str(item.type))
 
     # Write out to file
-    dbFile.write('\n'.join(lines))
-    dbFile.close()
+    db_file.write('\n'.join(lines))
+    db_file.close()

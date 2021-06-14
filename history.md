@@ -1,3 +1,7 @@
+1.5.5
+---
+- Added write_db function to persist session changes to disk.
+
 1.5.4
 ---
 - Added DELETE functionality. Command interpreter complete. Next task: write DB per config, add additional commands for CONFIG + LOGGING setup
