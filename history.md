@@ -1,3 +1,7 @@
+1.6
+---
+- Redo of logging and debug statements to make use of Python logger framework.
+
 1.5.5
 ---
 - Added write_db function to persist session changes to disk.
