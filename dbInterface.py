@@ -7,7 +7,7 @@ class DbInterface:
     def __init__(self, print_debug_statements=False):
 
         # Initialize the config first
-        self.dbConfig = config.configHandler.DatabaseConfiguration(print_debug_statements)
+        self.dbConfig = config.configHandler.DatabaseConfiguration()
         self.version = self.dbConfig.codeVersion
         if print_debug_statements:
             print('Database Config Initialized')

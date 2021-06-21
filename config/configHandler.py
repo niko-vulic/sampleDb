@@ -3,24 +3,24 @@ import sys
 import os
 import logging
 
-import config.dbConstants
+import config.dbConstants as dbConst
 
 
 class DatabaseConfiguration:
-    def __init__(self, print_debug_statements=False):
+    def __init__(self):
         # Read the ini file from local dir
         db_config = configparser.ConfigParser()
         db_config.read('config/config.ini')
 
         # Define log levels
         self.logLevel = {}
-        self.logLevel[config.dbConstants.DB_IO] = db_config[config.dbConstants.SECT_LOG][config.dbConstants.DB_IO]
-        self.logLevel[config.dbConstants.DB_COMMANDS] = db_config[config.dbConstants.SECT_LOG][config.dbConstants.DB_COMMANDS]
-        self.logLevel[config.dbConstants.CONF_HANDLER] = db_config[config.dbConstants.SECT_LOG][config.dbConstants.CONF_HANDLER]
+        self.logLevel[dbConst.DB_IO] = db_config[dbConst.SECT_LOG][dbConst.DB_IO]
+        self.logLevel[dbConst.DB_COMMANDS] = db_config[dbConst.SECT_LOG][dbConst.DB_COMMANDS]
+        self.logLevel[dbConst.CONF_HANDLER] = db_config[dbConst.SECT_LOG][dbConst.CONF_HANDLER]
 
         # Set the logger - have to import logger settings first
-        logging.basicConfig(stream=sys.stdout, level=self.logLevel[config.dbConstants.CONF_HANDLER])
-        logger = logging.getLogger(config.dbConstants.CONF_HANDLER)
+        logging.basicConfig(stream=sys.stdout, level=self.logLevel[dbConst.CONF_HANDLER])
+        logger = logging.getLogger(dbConst.CONF_HANDLER)
 
         # Set version
         self.codeVersion = db_config['DEFAULT']['codeVersion']
@@ -31,16 +31,15 @@ class DatabaseConfiguration:
         self.filename = db_config['DEFAULT']['filename']
         self.columns = self.format.split(self.delimiter)
 
-        self.nameColumnIndex = self.get_column(config.dbConstants.NAME)
-        self.priceColumnIndex = self.get_column(config.dbConstants.PRICE)
-        self.typeColumnIndex = self.get_column(config.dbConstants.TYPE)
+        self.nameColumnIndex = self.get_column(dbConst.NAME)
+        self.priceColumnIndex = self.get_column(dbConst.PRICE)
+        self.typeColumnIndex = self.get_column(dbConst.TYPE)
 
         # Debug statements
-        if print_debug_statements:
-            logger.debug('DEBUG - Initializing ConfigHandler')
-            logger.debug('DEBUG - DB delimiter:' + db_config.get('DEFAULT', 'delimiter'))
-            logger.debug('DEBUG - DB format:' + db_config.get('DEFAULT', 'format'))
-            logger.debug('DEBUG - DB filename:' + db_config.get('DEFAULT', 'filename'))
+        logger.debug('DEBUG - Initializing ConfigHandler')
+        logger.debug('DEBUG - DB delimiter:' + db_config.get('DEFAULT', 'delimiter'))
+        logger.debug('DEBUG - DB format:' + db_config.get('DEFAULT', 'format'))
+        logger.debug('DEBUG - DB filename:' + db_config.get('DEFAULT', 'filename'))
 
     def __repr__(self):
         return 'Log levels: ' + str(self.logLevel)
