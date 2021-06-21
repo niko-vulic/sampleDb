@@ -1,3 +1,7 @@
+1.6.1
+---
+- Redo of dbInputOutput.read_db to use logging framework instead of print_debug_statements
+
 1.6
 ---
 - Redo of logging and debug statements to make use of Python logger framework.

@@ -30,6 +30,11 @@ class DatabaseConfiguration:
             print('DEBUG - DB format:' + db_config.get('DEFAULT', 'format'))
             print('DEBUG - DB filename:' + db_config.get('DEFAULT', 'filename'))
 
+
+        self.logLevel = {}
+        self.logLevel[config.dbConstants.DB_IO] = db_config[config.dbConstants.SECT_LOG][config.dbConstants.DB_IO]
+        self.logLevel[config.dbConstants.DB_COMMANDS] = db_config[config.dbConstants.SECT_LOG][config.dbConstants.DB_COMMANDS]
+
     # Get column by index, for parsing the DB format from config.ini file
     def get_column(self, name):
         try:

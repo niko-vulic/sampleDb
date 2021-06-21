@@ -1,5 +1,5 @@
 import config.configHandler
-import database.dbInputOutput
+import database.dbInputOutput as dbIo
 import control.userInputInterpreter
 
 
@@ -15,8 +15,8 @@ class DbInterface:
             print('DatabaseConfig:' + str(self.dbConfig))
 
         # Initialize the In-Memory Database from a parsed DB
-        self.parsedDatabase = database.dbInputOutput.read_db(self.dbConfig, print_debug_statements)
-        self.inMemoryDatabase = database.dbInputOutput.generate_object_db_representation(self.dbConfig, self.parsedDatabase, print_debug_statements)
+        self.parsedDatabase = dbIo.read_db(self.dbConfig)
+        self.inMemoryDatabase = dbIo.generate_object_db_representation(self.dbConfig, self.parsedDatabase, print_debug_statements)
 
         print('--- Database Project V:' + str(self.version) + ' ready ---')
         # Read user commands until exit

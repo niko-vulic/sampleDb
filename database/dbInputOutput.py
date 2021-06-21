@@ -1,5 +1,7 @@
 import sys
 import os
+import logging
+import config.dbConstants
 
 
 class DatabaseItem:
@@ -13,25 +15,23 @@ class DatabaseItem:
 
 
 # Parse the DB details from txt file
-def read_db(dbConfig, print_debug_statements=False):
+def read_db(dbConfig):
+    logging.basicConfig(stream=sys.stdout, level=dbConfig.logLevel[config.dbConstants.DB_IO])
     parsedDb = []
 
-    if print_debug_statements:
-        print('Parsing the DB')
-        print(dbConfig.columns)
+    logging.debug('Parsing the DB')
+    logging.debug('DB columns: ' + str(dbConfig.columns))
 
     # Read each line in the file and split the data into columns
     db_file = open(dbConfig.filename, 'r')
     for line in db_file:
-        formattedLine = line.strip().split(dbConfig.delimiter)
+        formatted_line = line.strip().split(dbConfig.delimiter)
         parsedDb.append(formattedLine)
+        logging.debug('Reading DB - next line:' + str(formatted_line))
 
-        if print_debug_statements:
-            print(formattedLine)
     db_file.close()
 
-    if print_debug_statements:
-        print(parsedDb)
+    logging.debug('Parsed DB:' + str(parsedDb))
     return parsedDb
 
 
