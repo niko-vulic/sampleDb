@@ -1,6 +1,8 @@
 import configparser
 import sys
 import os
+import logging
+
 import config.dbConstants
 
 
@@ -9,6 +11,16 @@ class DatabaseConfiguration:
         # Read the ini file from local dir
         db_config = configparser.ConfigParser()
         db_config.read('config/config.ini')
+
+        # Define log levels
+        self.logLevel = {}
+        self.logLevel[config.dbConstants.DB_IO] = db_config[config.dbConstants.SECT_LOG][config.dbConstants.DB_IO]
+        self.logLevel[config.dbConstants.DB_COMMANDS] = db_config[config.dbConstants.SECT_LOG][config.dbConstants.DB_COMMANDS]
+        self.logLevel[config.dbConstants.CONF_HANDLER] = db_config[config.dbConstants.SECT_LOG][config.dbConstants.CONF_HANDLER]
+
+        # Set the logger - have to import logger settings first
+        logging.basicConfig(stream=sys.stdout, level=self.logLevel[config.dbConstants.CONF_HANDLER])
+        logger = logging.getLogger(config.dbConstants.CONF_HANDLER)
 
         # Set version
         self.codeVersion = db_config['DEFAULT']['codeVersion']
@@ -25,15 +37,13 @@ class DatabaseConfiguration:
 
         # Debug statements
         if print_debug_statements:
-            print('DEBUG - Initializing ConfigHandler')
-            print('DEBUG - DB delimiter:' + db_config.get('DEFAULT', 'delimiter'))
-            print('DEBUG - DB format:' + db_config.get('DEFAULT', 'format'))
-            print('DEBUG - DB filename:' + db_config.get('DEFAULT', 'filename'))
+            logger.debug('DEBUG - Initializing ConfigHandler')
+            logger.debug('DEBUG - DB delimiter:' + db_config.get('DEFAULT', 'delimiter'))
+            logger.debug('DEBUG - DB format:' + db_config.get('DEFAULT', 'format'))
+            logger.debug('DEBUG - DB filename:' + db_config.get('DEFAULT', 'filename'))
 
-
-        self.logLevel = {}
-        self.logLevel[config.dbConstants.DB_IO] = db_config[config.dbConstants.SECT_LOG][config.dbConstants.DB_IO]
-        self.logLevel[config.dbConstants.DB_COMMANDS] = db_config[config.dbConstants.SECT_LOG][config.dbConstants.DB_COMMANDS]
+    def __repr__(self):
+        return 'Log levels: ' + str(self.logLevel)
 
     # Get column by index, for parsing the DB format from config.ini file
     def get_column(self, name):

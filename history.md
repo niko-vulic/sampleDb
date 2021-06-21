@@ -1,3 +1,7 @@
+1.6.3
+---
+- Started logging implementation of configHandler
+
 1.6.1
 ---
 - Redo of dbInputOutput.read_db to use logging framework instead of print_debug_statements
