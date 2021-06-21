@@ -17,34 +17,38 @@ class DatabaseItem:
 # Parse the DB details from txt file
 def read_db(dbConfig):
     logging.basicConfig(stream=sys.stdout, level=dbConfig.logLevel[config.dbConstants.DB_IO])
+    logger = logging.getLogger(config.dbConstants.DB_IO)
     parsedDb = []
 
-    logging.debug('Parsing the DB')
-    logging.debug('DB columns: ' + str(dbConfig.columns))
+    logger.debug('Parsing the DB')
+    logger.debug('DB columns: ' + str(dbConfig.columns))
 
     # Read each line in the file and split the data into columns
     db_file = open(dbConfig.filename, 'r')
     for line in db_file:
         formatted_line = line.strip().split(dbConfig.delimiter)
-        parsedDb.append(formattedLine)
-        logging.debug('Reading DB - next line:' + str(formatted_line))
+        parsedDb.append(formatted_line)
+        logger.debug('Reading DB - next line:' + str(formatted_line))
 
     db_file.close()
 
-    logging.debug('Parsed DB:' + str(parsedDb))
+    logger.debug('Parsed DB:' + str(parsedDb))
     return parsedDb
 
 
 # Create a List[DatabaseItem] representation of the parsed DB
-def generate_object_db_representation(dbConfig, parsedDb, print_debug_statements=False):
+def generate_object_db_representation(dbConfig, parsedDb):
+    logging.basicConfig(stream=sys.stdout, level=dbConfig.logLevel[config.dbConstants.DB_IO])
+    logger = logging.getLogger(config.dbConstants.DB_IO)
+
     database = []
     for item in parsedDb:
         newDbItem = DatabaseItem(item[dbConfig.nameColumnIndex], item[dbConfig.priceColumnIndex], item[dbConfig.typeColumnIndex])
         database.append(newDbItem)
 
-    if print_debug_statements:
-        for item in database:
-            print('DEBUG - ' + repr(item))
+    logger.debug('Database formatted as DatabaseItem classes:')
+    for item in database:
+        logger.debug(repr(item))
     return database
 
 # Write the current DB contents out back to the file

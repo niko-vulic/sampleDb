@@ -16,7 +16,7 @@ class DbInterface:
 
         # Initialize the In-Memory Database from a parsed DB
         self.parsedDatabase = dbIo.read_db(self.dbConfig)
-        self.inMemoryDatabase = dbIo.generate_object_db_representation(self.dbConfig, self.parsedDatabase, print_debug_statements)
+        self.inMemoryDatabase = dbIo.generate_object_db_representation(self.dbConfig, self.parsedDatabase)
 
         print('--- Database Project V:' + str(self.version) + ' ready ---')
         # Read user commands until exit
