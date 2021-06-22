@@ -1,6 +1,12 @@
+1.6.8
+---
+- Changed configHandler to persist changes upon exit only rather than upon every log level change.
+- Added a config/backup/ directory to create backups of every config change
+
 1.6.7
 ---
 - Added a defaultConfig.ini file which will be used to form config.ini so changes to config.ini don't get saved to git
+- Implemented .gitignore for the first time
 
 1.6.5
 ---

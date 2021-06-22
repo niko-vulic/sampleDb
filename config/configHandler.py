@@ -1,6 +1,7 @@
 import configparser
 import sys
 import os
+from os import path
 import logging
 
 import config.dbConstants as dbConst
@@ -11,9 +12,11 @@ class DatabaseConfiguration:
         # Read the ini file from local dir
         # 1.6.7 - if default config file does not exist, read default_config.ini file instead
         db_config = configparser.ConfigParser()
-        try:
+        if path.exists(dbConst.CONFIG_FILE):
+            print('ConfigHandler - reading from config.ini file')
             db_config.read(dbConst.CONFIG_FILE)
-        except:
+        else:
+            print('ConfigHandler - Config.ini not found, generating for the first time')
             db_config.read(dbConst.DEFAULT_CONFIG_FILE)
             with open(dbConst.CONFIG_FILE, 'w') as config_file_updater:
                 db_config.write(config_file_updater)
