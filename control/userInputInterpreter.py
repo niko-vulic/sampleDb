@@ -1,5 +1,6 @@
 import database.dbCommands
 import database.dbInputOutput
+import config.dbConstants as dbConst
 
 USER_INPUT_INTRO = "Type 'exit' to quit or 'help' for a list of commands"
 USER_INPUT_GOODBYE = 'EXIT command received. Terminating...'
@@ -12,15 +13,17 @@ FIND = 'find'
 ADD = 'add'
 LIST = 'list'
 DELETE = 'delete'
+CONFIG = 'config'
 
 ANSWER_NO = 'n'
 ANSWER_YES = 'y'
 
 
 class CommandInterpreter:
-    def __init__(self, inMemoryDatabase, print_debug_statements=False):
+    def __init__(self, inMemoryDatabase, db_config, print_debug_statements=False):
         self.print_debug_statements = print_debug_statements
         self.inMemoryDatabase = inMemoryDatabase
+        self.db_config = db_config
 
         if print_debug_statements:
             print('DEBUG - CommandInterpreter - ON')
@@ -90,6 +93,15 @@ class CommandInterpreter:
                 print('Item: ' + item_to_delete_name + ' has been deleted!')
             else:
                 print('Item: ' + item_to_delete_name + ' does not exist in database, cannot be deleted!')
+
+        # CONFIG command - update config params
+        elif input_string == CONFIG:
+            print('Valid loggers:' + str(self.db_config.logLevel.keys()))
+            print('Valid log levels:' + str(dbConst.VALID_LOG_LEVELS))
+            logger_name_to_update = input('Logger name to update:')
+            logger_level_to_udpate = input('New logger level:')
+            print(self.db_config.update_log_level(logger_name_to_update, logger_level_to_udpate))
+
 
 
 def parse_yes_no_answer(input_string) -> bool:

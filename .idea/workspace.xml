@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8633ca09-084e-4e68-aa8e-98c27019cbdc" name="Default Changelist" comment="1.6.3">
+    <list default="true" id="8633ca09-084e-4e68-aa8e-98c27019cbdc" name="Default Changelist" comment="1.6.4">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/configHandler.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/configHandler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/dbConstants.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/dbConstants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/control/userInputInterpreter.py" beforeDir="false" afterPath="$PROJECT_DIR$/control/userInputInterpreter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/dbInputOutput.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/dbInputOutput.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dbInterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/dbInterface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history.md" beforeDir="false" afterPath="$PROJECT_DIR$/history.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -375,7 +381,21 @@
       <option name="project" value="LOCAL" />
       <updated>1624314269539</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="1.6.4">
+      <created>1624314416525</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1624314416525</updated>
+    </task>
+    <task id="LOCAL-00034" summary="1.6.4">
+      <created>1624321882444</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1624321882444</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -456,7 +476,8 @@
     <MESSAGE value="1.6.1" />
     <MESSAGE value="1.6.2" />
     <MESSAGE value="1.6.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.6.3" />
+    <MESSAGE value="1.6.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.6.4" />
     <option name="UPDATE_GROUP_BY_PACKAGES" value="true" />
   </component>
 </project>

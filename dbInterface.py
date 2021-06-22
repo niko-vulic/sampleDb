@@ -20,10 +20,10 @@ class DbInterface:
 
         print('--- Database Project V:' + str(self.version) + ' ready ---')
         # Read user commands until exit
-        self.inputInterpreter = control.userInputInterpreter.CommandInterpreter(self.inMemoryDatabase, print_debug_statements)
+        self.inputInterpreter = control.userInputInterpreter.CommandInterpreter(self.inMemoryDatabase, self.dbConfig, print_debug_statements)
         self.inputInterpreter.init_input_reader()
 
         # On exit, commit changes and close
         print('Committing database to disk')
-        database.dbInputOutput.write_db(self.dbConfig, self.inMemoryDatabase, print_debug_statements)
+        dbIo.write_db(self.dbConfig, self.inMemoryDatabase, print_debug_statements)
         print('--- Database Project V:' + str(self.version) + ' terminated ---')

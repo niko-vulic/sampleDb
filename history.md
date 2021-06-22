@@ -1,3 +1,8 @@
+1.6.5
+---
+- Added ability to update logger levels from default values
+- Added writing config file changes back out to disc
+
 1.6.3
 ---
 - Started logging implementation of configHandler

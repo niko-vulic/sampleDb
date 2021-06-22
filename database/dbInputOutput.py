@@ -18,7 +18,7 @@ class DatabaseItem:
 def read_db(dbConfig):
     logging.basicConfig(stream=sys.stdout, level=dbConfig.logLevel[config.dbConstants.DB_IO])
     logger = logging.getLogger(config.dbConstants.DB_IO)
-    parsedDb = []
+    parsed_db = []
 
     logger.debug('Parsing the DB')
     logger.debug('DB columns: ' + str(dbConfig.columns))
@@ -27,29 +27,30 @@ def read_db(dbConfig):
     db_file = open(dbConfig.filename, 'r')
     for line in db_file:
         formatted_line = line.strip().split(dbConfig.delimiter)
-        parsedDb.append(formatted_line)
+        parsed_db.append(formatted_line)
         logger.debug('Reading DB - next line:' + str(formatted_line))
 
     db_file.close()
 
-    logger.debug('Parsed DB:' + str(parsedDb))
-    return parsedDb
+    logger.debug('Parsed DB:' + str(parsed_db))
+    return parsed_db
 
 
 # Create a List[DatabaseItem] representation of the parsed DB
-def generate_object_db_representation(dbConfig, parsedDb):
+def generate_object_db_representation(dbConfig, parsed_db):
     logging.basicConfig(stream=sys.stdout, level=dbConfig.logLevel[config.dbConstants.DB_IO])
     logger = logging.getLogger(config.dbConstants.DB_IO)
 
     database = []
-    for item in parsedDb:
-        newDbItem = DatabaseItem(item[dbConfig.nameColumnIndex], item[dbConfig.priceColumnIndex], item[dbConfig.typeColumnIndex])
-        database.append(newDbItem)
+    for item in parsed_db:
+        new_db_item = DatabaseItem(item[dbConfig.nameColumnIndex], item[dbConfig.priceColumnIndex], item[dbConfig.typeColumnIndex])
+        database.append(new_db_item)
 
     logger.debug('Database formatted as DatabaseItem classes:')
     for item in database:
         logger.debug(repr(item))
     return database
+
 
 # Write the current DB contents out back to the file
 def write_db(dbConfig, database, print_debug_statements=False):
