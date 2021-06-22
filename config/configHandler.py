@@ -9,8 +9,14 @@ import config.dbConstants as dbConst
 class DatabaseConfiguration:
     def __init__(self):
         # Read the ini file from local dir
+        # 1.6.7 - if default config file does not exist, read default_config.ini file instead
         db_config = configparser.ConfigParser()
-        db_config.read(dbConst.CONFIG_FILE)
+        try:
+            db_config.read(dbConst.CONFIG_FILE)
+        except:
+            db_config.read(dbConst.DEFAULT_CONFIG_FILE)
+            with open(dbConst.CONFIG_FILE, 'w') as config_file_updater:
+                db_config.write(config_file_updater)
 
         # Define log levels
         self.logLevel = {}
@@ -36,7 +42,7 @@ class DatabaseConfiguration:
         self.typeColumnIndex = self.get_column(dbConst.TYPE)
 
         # Debug statements
-        logger.debug('DEBUG - Initializing ConfigHandler')
+        logger.info('Initializing ConfigHandler')
         logger.debug('DEBUG - DB delimiter:' + db_config.get('DEFAULT', 'delimiter'))
         logger.debug('DEBUG - DB format:' + db_config.get('DEFAULT', 'format'))
         logger.debug('DEBUG - DB filename:' + db_config.get('DEFAULT', 'filename'))

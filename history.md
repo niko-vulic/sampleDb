@@ -1,3 +1,7 @@
+1.6.7
+---
+- Added a defaultConfig.ini file which will be used to form config.ini so changes to config.ini don't get saved to git
+
 1.6.5
 ---
 - Added ability to update logger levels from default values
