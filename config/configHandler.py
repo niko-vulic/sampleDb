@@ -10,9 +10,7 @@ class DatabaseConfiguration:
     def __init__(self):
         # Read the ini file from local dir
         db_config = configparser.ConfigParser()
-        #with open(dbConst.CONFIG_FILE, 'r') as config_file:
-        #with open('config/config.ini', 'r') as config_file:
-        db_config.read('config/config.ini')
+        db_config.read(dbConst.CONFIG_FILE)
 
         # Define log levels
         self.logLevel = {}

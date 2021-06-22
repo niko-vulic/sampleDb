@@ -2,6 +2,7 @@
 ---
 - Added ability to update logger levels from default values
 - Added writing config file changes back out to disc
+-- Bug, cannot open config file with: with open(dbConst.CONFIG_FILE, 'r') as config_file:
 
 1.6.3
 ---
