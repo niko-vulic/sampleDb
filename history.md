@@ -1,3 +1,8 @@
+1.6.9
+---
+- Only backup config if items are changed between current config and in-memory
+- TODO - make the changes so that codeVersion needs to be kept updated in only 1 place
+
 1.6.8.2
 ---
 - Additional minor changes to loggers to update to new configuration

@@ -61,6 +61,15 @@ class DatabaseConfiguration:
     def __repr__(self):
         return 'Log levels: ' + str(self.logLevel)
 
+    # Note: we do not compare the logger itself as this is set once upon class creation
+    # By comparing code versions, going forward we only need to keep defaultConfig.ini updated
+    def __eq__(self, other):
+        return isinstance(other, self.__class__) and \
+            self.logLevel == other.logLevel and self.codeVersion == other.codeVersion and \
+            self.delimiter == other.delimiter and self.format == other.format and self.filename == other.filename and \
+            self.columns == other.columns and self.nameColumnIndex == other.nameColumnIndex and \
+            self.priceColumnIndex == other.priceColumnIndex and self.typeColumnIndex == other.typeColumnIndex
+
     # Get column by index, for parsing the DB format from config.ini file
     def get_column(self, name):
         try:
@@ -91,20 +100,36 @@ class DatabaseConfiguration:
 
     # Persist the config changes, to be called upon exit
     def persist_config(self):
-        # Backup the existing conf file first into the backup dir
-        backup_file_name = 'config-' + str(datetime.fromtimestamp(time()).strftime("%Y%m%d-%H%M%S")) + '.ini.'
-        self.logger.debug('Backup filename:' + backup_file_name)
-        # TODO - diff the files and only update if different
-        shutil.copy(dbConst.CONFIG_FILE, 'config/backup/' + backup_file_name)
+        if self.is_config_backup_required():
+            # Backup the existing conf file first into the backup dir
+            backup_file_name = 'config-' + str(datetime.fromtimestamp(time()).strftime("%Y%m%d-%H%M%S")) + '.ini.'
+            shutil.copy(dbConst.CONFIG_FILE, 'config/backup/' + backup_file_name)
+            
+            self.logger.debug('Backup filename:' + backup_file_name)
+            self.logger.warning('Existing config file backed up due to changes')
 
-        # Create a configParser from the existing config.ini to use as a base to update
-        temp_db_config = configparser.ConfigParser()
-        temp_db_config.read(dbConst.CONFIG_FILE)
-        # Update the config with the in-memory logger levels:
-        for logger_name in self.logLevel:
-            self.logger.debug('Logger ' + logger_name + ' . Old:' + str(temp_db_config[dbConst.SECT_LOG][logger_name]) + ', new:' + str(self.logLevel[logger_name]))
-            temp_db_config[dbConst.SECT_LOG][logger_name] = self.logLevel[logger_name]
+            # Create a configParser from the existing config.ini to use as a base to update
+            temp_config_parser = configparser.ConfigParser()
+            temp_config_parser.read(dbConst.CONFIG_FILE)
+            # Update the config with the in-memory logger levels:
+            for logger_name in self.logLevel:
+                self.logger.debug('Logger ' + logger_name + ' . Old:' + str(temp_config_parser[dbConst.SECT_LOG][logger_name]) + ', new:' + str(self.logLevel[logger_name]))
+                temp_config_parser[dbConst.SECT_LOG][logger_name] = self.logLevel[logger_name]
 
-        # Write the updated temp_db_config back to disk
-        with open(dbConst.CONFIG_FILE, 'w') as config_file_writer:
-            temp_db_config.write(config_file_writer)
+            # Write the updated temp_config_parser back to disk
+            with open(dbConst.CONFIG_FILE, 'w') as config_file_writer:
+                temp_config_parser.write(config_file_writer)
+        else:
+            self.logger.info('Config not updated on disk, no changes made!')
+
+    def is_config_backup_required(self):
+        # Create a temporary config to compare against the in-memory version
+        temp_db_config = DatabaseConfiguration()
+        
+        # If both configs are the same, no update is required
+        if self.__eq__(temp_db_config):
+            self.logger.debug('Config object is same as disk version')
+            return False
+
+        self.logger.debug('Config object is different from disk version')
+        return True

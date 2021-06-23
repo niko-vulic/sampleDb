@@ -12,7 +12,7 @@ class DbInterface:
         if print_debug_statements:
             print('Database Config Initialized')
             print('Database Code Version : ' + str(self.version))
-            print('DatabaseConfig:' + str(self.dbConfig))
+            print('Database Config Log Levels:' + str(self.dbConfig))
 
         # Initialize the In-Memory Database from a parsed DB
         self.parsedDatabase = dbIo.read_db(self.dbConfig)
