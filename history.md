@@ -2,6 +2,7 @@
 ---
 - Changed configHandler to persist changes upon exit only rather than upon every log level change.
 - Added a config/backup/ directory to create backups of every config change
+- Moved configHandler.logger to the 'self' level - unsure if this is a good design pattern so far
 
 1.6.7
 ---

@@ -26,4 +26,5 @@ class DbInterface:
         # On exit, commit changes and close
         print('Committing database to disk')
         dbIo.write_db(self.dbConfig, self.inMemoryDatabase, print_debug_statements)
+        self.dbConfig.persist_config()
         print('--- Database Project V:' + str(self.version) + ' terminated ---')
