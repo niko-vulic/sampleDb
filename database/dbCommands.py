@@ -1,7 +1,3 @@
-import config.configHandler
-import config.dbConstants
-
-
 def find_item(item_name, database):
     """Returns an item from the DB if it exists, else None"""
     for item in database:

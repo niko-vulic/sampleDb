@@ -14,6 +14,7 @@ import config.dbConstants as dbConst
 class DatabaseConfiguration:
     def __init__(self):
         db_config = configparser.ConfigParser()
+        logging.basicConfig(stream=sys.stdout)
 
         # Attempt to read the config.ini file from local dir
         if path.exists(dbConst.CONFIG_FILE):
@@ -31,10 +32,13 @@ class DatabaseConfiguration:
         self.logLevel[dbConst.DB_IO] = db_config[dbConst.SECT_LOG][dbConst.DB_IO]
         self.logLevel[dbConst.DB_COMMANDS] = db_config[dbConst.SECT_LOG][dbConst.DB_COMMANDS]
         self.logLevel[dbConst.CONF_HANDLER] = db_config[dbConst.SECT_LOG][dbConst.CONF_HANDLER]
+        self.logLevel[dbConst.USER_COMMANDS] = db_config[dbConst.SECT_LOG][dbConst.USER_COMMANDS]
 
         # Set the logger - have to import logger settings first
-        logging.basicConfig(stream=sys.stdout, level=self.logLevel[dbConst.CONF_HANDLER])
+        #logging.basicConfig(stream=sys.stdout, level=self.logLevel[dbConst.CONF_HANDLER])
         self.logger = logging.getLogger(dbConst.CONF_HANDLER)
+        self.logger.setLevel(self.logLevel[dbConst.CONF_HANDLER])
+
 
         # Set version
         self.codeVersion = db_config['DEFAULT']['codeVersion']
@@ -103,5 +107,6 @@ class DatabaseConfiguration:
             self.logger.debug('Logger ' + logger_name + ' . Old:' + str(temp_db_config[dbConst.SECT_LOG][logger_name]) + ', new:' + str(self.logLevel[logger_name]))
             temp_db_config[dbConst.SECT_LOG][logger_name] = self.logLevel[logger_name]
 
+        # Write the updated temp_db_config back to disk
         with open(dbConst.CONFIG_FILE, 'w') as config_file_writer:
             temp_db_config.write(config_file_writer)

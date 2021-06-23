@@ -1,3 +1,5 @@
+import logging
+
 import database.dbCommands
 import database.dbInputOutput
 import config.dbConstants as dbConst
@@ -25,8 +27,10 @@ class CommandInterpreter:
         self.inMemoryDatabase = inMemoryDatabase
         self.db_config = db_config
 
-        if print_debug_statements:
-            print('DEBUG - CommandInterpreter - ON')
+        self.logger = logging.getLogger(dbConst.USER_COMMANDS)
+        self.logger.setLevel(db_config.logLevel[dbConst.USER_COMMANDS])
+
+        self.logger.debug('User command interpreter ONLINE')
 
     # Main method to loop over user input
     def init_input_reader(self):

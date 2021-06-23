@@ -1,7 +1,7 @@
 import sys
 import os
 import logging
-import config.dbConstants
+import config.dbConstants as dbConst
 
 
 class DatabaseItem:
@@ -16,11 +16,11 @@ class DatabaseItem:
 
 # Parse the DB details from txt file
 def read_db(dbConfig):
-    logging.basicConfig(stream=sys.stdout, level=dbConfig.logLevel[config.dbConstants.DB_IO])
-    logger = logging.getLogger(config.dbConstants.DB_IO)
+    logger = logging.getLogger(dbConst.DB_IO)
+    logger.setLevel(dbConfig.logLevel[dbConst.DB_IO])
     parsed_db = []
 
-    logger.debug('Parsing the DB')
+    logger.info('Parsing the database from disk...')
     logger.debug('DB columns: ' + str(dbConfig.columns))
 
     # Read each line in the file and split the data into columns
@@ -38,8 +38,8 @@ def read_db(dbConfig):
 
 # Create a List[DatabaseItem] representation of the parsed DB
 def generate_object_db_representation(dbConfig, parsed_db):
-    logging.basicConfig(stream=sys.stdout, level=dbConfig.logLevel[config.dbConstants.DB_IO])
-    logger = logging.getLogger(config.dbConstants.DB_IO)
+    logger = logging.getLogger(dbConst.DB_IO)
+    logger.setLevel(dbConfig.logLevel[dbConst.DB_IO])
 
     database = []
     for item in parsed_db:
