@@ -20,7 +20,7 @@ class DbInterface:
 
         print('--- Database Project V:' + str(self.version) + ' ready ---')
         # Read user commands until exit
-        self.inputInterpreter = control.userInputInterpreter.CommandInterpreter(self.inMemoryDatabase, self.dbConfig, print_debug_statements)
+        self.inputInterpreter = control.userInputInterpreter.CommandInterpreter(self.inMemoryDatabase, self.dbConfig)
         self.inputInterpreter.init_input_reader()
 
         # TERMINATE PROGRAM
