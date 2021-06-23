@@ -23,8 +23,11 @@ class DbInterface:
         self.inputInterpreter = control.userInputInterpreter.CommandInterpreter(self.inMemoryDatabase, self.dbConfig, print_debug_statements)
         self.inputInterpreter.init_input_reader()
 
+        # TERMINATE PROGRAM
         # On exit, commit changes and close
         print('Committing database to disk')
         dbIo.write_db(self.dbConfig, self.inMemoryDatabase, print_debug_statements)
+        # Update the config changes
+        print('Committing config changes to disk')
         self.dbConfig.persist_config()
         print('--- Database Project V:' + str(self.version) + ' terminated ---')

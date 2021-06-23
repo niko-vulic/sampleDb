@@ -1,3 +1,13 @@
+1.6.8.2
+---
+- Additional minor changes to loggers to update to new configuration
+-- Fixed all loggers on dbInputOutput.py
+-- Converted userInputInterpreter to use logging instead of print_debug_statements
+
+1.6.8.1
+---
+- Bug fixes to setting logLevel. logging.basicConfig() is only invoked once with log.setLevel used properly
+
 1.6.8
 ---
 - Changed configHandler to persist changes upon exit only rather than upon every log level change.
