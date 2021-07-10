@@ -1,6 +1,9 @@
 NAME = 'name'
 PRICE = 'price'
 TYPE = 'type'
+NAME_VALUE = 0
+PRICE_VALUE = 1
+TYPE_VALUE = 2
 
 SECT_DEF = 'DEFAULT'
 SECT_LOG = 'LOGGERS'

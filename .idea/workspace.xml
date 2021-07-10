@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8633ca09-084e-4e68-aa8e-98c27019cbdc" name="Default Changelist" comment="1.6.8.2" />
+    <list default="true" id="8633ca09-084e-4e68-aa8e-98c27019cbdc" name="Default Changelist" comment="1.6.8.2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/configHandler.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/configHandler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/dbConstants.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/dbConstants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/default_config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/default_config.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history.md" beforeDir="false" afterPath="$PROJECT_DIR$/history.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,7 +75,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/config/config.ini" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/config" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
   </component>
   <component name="PyConsoleOptionsProvider">

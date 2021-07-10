@@ -45,11 +45,11 @@ class DatabaseConfiguration:
         self.delimiter = db_config['DEFAULT']['delimiter']
         self.format = db_config['DEFAULT']['format']
         self.filename = db_config['DEFAULT']['filename']
-        self.columns = self.format.split(self.delimiter)
 
-        self.nameColumnIndex = self.get_column(dbConst.NAME)
-        self.priceColumnIndex = self.get_column(dbConst.PRICE)
-        self.typeColumnIndex = self.get_column(dbConst.TYPE)
+        # 1.7 - Format will be statically defined. Format = name,price,type
+        self.nameColumnIndex = dbConst.NAME_VALUE
+        self.priceColumnIndex = dbConst.PRICE_VALUE
+        self.typeColumnIndex = dbConst.TYPE_VALUE
 
         # Debug statements
         self.logger.info('Initializing ConfigHandler')
@@ -66,17 +66,7 @@ class DatabaseConfiguration:
     def __eq__(self, other):
         return isinstance(other, self.__class__) and \
             self.logLevel == other.logLevel and self.codeVersion == other.codeVersion and \
-            self.delimiter == other.delimiter and self.format == other.format and self.filename == other.filename and \
-            self.columns == other.columns and self.nameColumnIndex == other.nameColumnIndex and \
-            self.priceColumnIndex == other.priceColumnIndex and self.typeColumnIndex == other.typeColumnIndex
-
-    # Get column by index, for parsing the DB format from config.ini file
-    def get_column(self, name):
-        try:
-            column_index = self.columns.index(name)
-            return column_index
-        except ValueError:
-            return -1
+            self.delimiter == other.delimiter and self.format == other.format and self.filename == other.filename
 
     def update_log_level(self, logger_name, new_log_level):
         update_result = ''
@@ -124,6 +114,7 @@ class DatabaseConfiguration:
 
     def is_config_backup_required(self):
         # Create a temporary config to compare against the in-memory version
+        # Note we only compare logger level changes.
         temp_db_config = DatabaseConfiguration()
         
         # If both configs are the same, no update is required

@@ -1,3 +1,7 @@
+1.7
+---
+- Goal to simplify config, remove user control over delimiter and [name, price, type] columns
+
 1.6.9
 ---
 - Only backup config if items are changed between current config and in-memory
