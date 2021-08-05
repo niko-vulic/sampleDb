@@ -1,3 +1,7 @@
+1.7.1
+---
+- Minor bugfix as adding items only accepted integers for price, not floats
+
 1.7
 ---
 - Goal to simplify config, remove user control over delimiter and [name, price, type] columns

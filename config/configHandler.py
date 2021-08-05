@@ -13,17 +13,21 @@ import config.dbConstants as dbConst
 
 class DatabaseConfiguration:
     def __init__(self):
-        db_config = configparser.ConfigParser()
+        # Always read default_config - required for core items
+        default_config = configparser.ConfigParser()
+        default_config.read(dbConst.DEFAULT_CONFIG_FILE)
+
         logging.basicConfig(stream=sys.stdout)
 
         # Attempt to read the config.ini file from local dir
+        db_config = configparser.ConfigParser()
         if path.exists(dbConst.CONFIG_FILE):
-            print('ConfigHandler - reading from config.ini file')
+            print('ConfigHandler - reading existing config from config.ini file')
             db_config.read(dbConst.CONFIG_FILE)
         # 1.6.7 - if default config file does not exist, read default_config.ini file instead
         else:
             print('ConfigHandler - Config.ini not found, generating for the first time')
-            db_config.read(dbConst.DEFAULT_CONFIG_FILE)
+            db_config = default_config
             with open(dbConst.CONFIG_FILE, 'w') as config_file_updater:
                 db_config.write(config_file_updater)
 
@@ -38,18 +42,11 @@ class DatabaseConfiguration:
         self.logger = logging.getLogger(dbConst.CONF_HANDLER)
         self.logger.setLevel(self.logLevel[dbConst.CONF_HANDLER])
 
-        # Set version
-        self.codeVersion = db_config['DEFAULT']['codeVersion']
-
-        # Set class-local params
-        self.delimiter = db_config['DEFAULT']['delimiter']
-        self.format = db_config['DEFAULT']['format']
-        self.filename = db_config['DEFAULT']['filename']
-
-        # 1.7 - Format will be statically defined. Format = name,price,type
-        self.nameColumnIndex = dbConst.NAME_VALUE
-        self.priceColumnIndex = dbConst.PRICE_VALUE
-        self.typeColumnIndex = dbConst.TYPE_VALUE
+        # 1.7.2 - Read default settings from default_config file - codeVersion, delimiter, format, filename
+        self.codeVersion = default_config['DEFAULT']['codeVersion']
+        self.delimiter = default_config['DEFAULT']['delimiter']
+        self.format = default_config['DEFAULT']['format']
+        self.filename = default_config['DEFAULT']['filename']
 
         # Debug statements
         self.logger.info('Initializing ConfigHandler')

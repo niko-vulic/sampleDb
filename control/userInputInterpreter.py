@@ -127,7 +127,7 @@ def generate_temporary_item_from_input(input_string):
     item_type = split_item[2]
     item_price = 0
     try:
-        item_price = int(split_item[1])
+        item_price = float(split_item[1]) if '.' in split_item[1] else int(split_item[1])
     except ValueError:
         print('Unable to parse price. Must be integer or float value')
         return None

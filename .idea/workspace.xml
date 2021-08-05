@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8633ca09-084e-4e68-aa8e-98c27019cbdc" name="Default Changelist" comment="1.6.8.2">
+    <list default="true" id="8633ca09-084e-4e68-aa8e-98c27019cbdc" name="Default Changelist" comment="1.7">
+      <change afterPath="$PROJECT_DIR$/database/default_db.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/configHandler.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/configHandler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/dbConstants.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/dbConstants.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/default_config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/default_config.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/history.md" beforeDir="false" afterPath="$PROJECT_DIR$/history.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/db.txt" beforeDir="false" afterPath="$PROJECT_DIR$/database/db.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/dbInputOutput.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/dbInputOutput.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbInterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/dbInterface.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +78,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/config/config.ini" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/database" />
     <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -88,6 +91,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/database" />
       <recent name="$PROJECT_DIR$/config" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -438,7 +442,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624421422094</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="1.7">
+      <created>1625910000417</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1625910000417</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -524,7 +535,8 @@
     <MESSAGE value="1.6.8" />
     <MESSAGE value="1.6.8.1" />
     <MESSAGE value="1.6.8.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.6.8.2" />
+    <MESSAGE value="1.7" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.7" />
     <option name="UPDATE_GROUP_BY_PACKAGES" value="true" />
   </component>
 </project>

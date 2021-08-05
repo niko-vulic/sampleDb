@@ -20,7 +20,6 @@ def read_db(dbConfig):
     logger.setLevel(dbConfig.logLevel[dbConst.DB_IO])
 
     logger.info('Parsing the database from disk...')
-    logger.debug('DB columns: ' + str(dbConfig.columns))
 
     # Read each line in the file and split the data into columns
     parsed_db = []
@@ -43,7 +42,8 @@ def generate_object_db_representation(dbConfig, parsed_db):
 
     database = []
     for item in parsed_db:
-        new_db_item = DatabaseItem(item[dbConfig.nameColumnIndex], item[dbConfig.priceColumnIndex], item[dbConfig.typeColumnIndex])
+        # 1.7 - column indices have been made static, use constant values directly
+        new_db_item = DatabaseItem(item[dbConst.NAME_COLUMN_INDEX], item[dbConst.PRICE_COLUMN_INDEX], item[dbConst.TYPE_COLUMN_INDEX])
         database.append(new_db_item)
 
     logger.debug('Database formatted as DatabaseItem classes:')

@@ -1,0 +1,3 @@
+apple,4,fruit
+beet,5.5,veg
+can,5.5,uncategorized
