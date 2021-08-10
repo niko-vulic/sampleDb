@@ -25,7 +25,7 @@ def read_db(dbConfig):
     parsed_db = []
     db_file = open(dbConfig.filename, 'r')
     for line in db_file:
-        formatted_line = line.strip().split(dbConfig.delimiter)
+        formatted_line = line.strip().split(dbConst.DB_DELIMITER)
         parsed_db.append(formatted_line)
         logger.debug('Reading DB - next line:' + str(formatted_line))
 
@@ -57,7 +57,7 @@ def write_db(dbConfig, database, print_debug_statements=False):
     db_file = open(dbConfig.filename, 'w')
     lines = []
     for item in database:
-        lines.append(str(item.name) + dbConfig.delimiter + str(item.price) + dbConfig.delimiter + str(item.type))
+        lines.append(str(item.name) + dbConst.DB_DELIMITER + str(item.price) + dbConst.DB_DELIMITER + str(item.type))
 
     # Write out to file
     db_file.write('\n'.join(lines))

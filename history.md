@@ -1,3 +1,7 @@
+1.7.2
+---
+- Simplified config, removed references to format and delimiter being user defined.
+
 1.7.1
 ---
 - Minor bugfix as adding items only accepted integers for price, not floats

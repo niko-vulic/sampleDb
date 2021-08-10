@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8633ca09-084e-4e68-aa8e-98c27019cbdc" name="Default Changelist" comment="1.7">
-      <change afterPath="$PROJECT_DIR$/database/default_db.txt" afterDir="false" />
+    <list default="true" id="8633ca09-084e-4e68-aa8e-98c27019cbdc" name="Default Changelist" comment="1.7.1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/configHandler.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/configHandler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/dbConstants.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/dbConstants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/default_config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/default_config.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/db.txt" beforeDir="false" afterPath="$PROJECT_DIR$/database/db.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/dbInputOutput.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/dbInputOutput.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbInterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/dbInterface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history.md" beforeDir="false" afterPath="$PROJECT_DIR$/history.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +63,9 @@
         <option name="url" value="https://github.com/niko-vulic/sampleDb" />
       </UrlAndAccount>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="1prOQxz0nItmYm2XBJXiVLWMzSR" />
   <component name="ProjectViewState">
@@ -449,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625910000417</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="1.7.1">
+      <created>1628180580270</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1628180580271</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -493,7 +500,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="main" />
+                        <option value="HEAD" />
                       </list>
                     </value>
                   </entry>
@@ -536,7 +543,8 @@
     <MESSAGE value="1.6.8.1" />
     <MESSAGE value="1.6.8.2" />
     <MESSAGE value="1.7" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.7" />
+    <MESSAGE value="1.7.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.7.1" />
     <option name="UPDATE_GROUP_BY_PACKAGES" value="true" />
   </component>
 </project>

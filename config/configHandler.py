@@ -44,14 +44,10 @@ class DatabaseConfiguration:
 
         # 1.7.2 - Read default settings from default_config file - codeVersion, delimiter, format, filename
         self.codeVersion = default_config['DEFAULT']['codeVersion']
-        self.delimiter = default_config['DEFAULT']['delimiter']
-        self.format = default_config['DEFAULT']['format']
         self.filename = default_config['DEFAULT']['filename']
 
         # Debug statements
         self.logger.info('Initializing ConfigHandler')
-        self.logger.debug('DEBUG - DB delimiter:' + db_config.get('DEFAULT', 'delimiter'))
-        self.logger.debug('DEBUG - DB format:' + db_config.get('DEFAULT', 'format'))
         self.logger.debug('DEBUG - DB filename:' + db_config.get('DEFAULT', 'filename'))
         self.logger.debug('DEBUG - Config sections:' + str(db_config.sections()))
 
@@ -63,7 +59,7 @@ class DatabaseConfiguration:
     def __eq__(self, other):
         return isinstance(other, self.__class__) and \
             self.logLevel == other.logLevel and self.codeVersion == other.codeVersion and \
-            self.delimiter == other.delimiter and self.format == other.format and self.filename == other.filename
+            self.filename == other.filename
 
     def update_log_level(self, logger_name, new_log_level):
         update_result = ''
