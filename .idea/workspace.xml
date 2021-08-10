@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8633ca09-084e-4e68-aa8e-98c27019cbdc" name="Default Changelist" comment="1.7.2">
+    <list default="true" id="8633ca09-084e-4e68-aa8e-98c27019cbdc" name="Default Changelist" comment="1.8">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/dbConstants.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/dbConstants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/default_config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/default_config.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control/userInputInterpreter.py" beforeDir="false" afterPath="$PROJECT_DIR$/control/userInputInterpreter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/database/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/db.txt" beforeDir="false" afterPath="$PROJECT_DIR$/database/db.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/dbInputOutput.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/dbInputOutput.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/history.md" beforeDir="false" afterPath="$PROJECT_DIR$/history.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -480,7 +475,21 @@
       <option name="project" value="LOCAL" />
       <updated>1628617269932</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="1.8">
+      <created>1628633177406</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1628633177406</updated>
+    </task>
+    <task id="LOCAL-00047" summary="1.8">
+      <created>1628633282431</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1628633282431</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -543,7 +552,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.1" />
     <MESSAGE value="1.2" />
     <MESSAGE value="1.2.1" />
     <MESSAGE value="1.2.2" />
@@ -568,7 +576,8 @@
     <MESSAGE value="1.7" />
     <MESSAGE value="1.7.1" />
     <MESSAGE value="1.7.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.7.2" />
+    <MESSAGE value="1.8" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.8" />
     <option name="UPDATE_GROUP_BY_PACKAGES" value="true" />
   </component>
 </project>
