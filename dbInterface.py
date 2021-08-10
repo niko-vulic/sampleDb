@@ -9,6 +9,7 @@ class DbInterface:
         # Initialize the config first
         self.dbConfig = config.configHandler.DatabaseConfiguration()
         self.version = self.dbConfig.codeVersion
+        
         if print_debug_statements:
             print('Database Config Initialized')
             print('Database Code Version : ' + str(self.version))
@@ -26,7 +27,7 @@ class DbInterface:
         # TERMINATE PROGRAM
         # On exit, commit changes and close
         print('Committing database to disk')
-        dbIo.write_db(self.dbConfig, self.inMemoryDatabase, print_debug_statements)
+        dbIo.write_db(self.dbConfig, self.inMemoryDatabase)
         # Update the config changes
         print('Committing config changes to disk')
         self.dbConfig.persist_config()

@@ -17,3 +17,4 @@ USER_COMMANDS = 'user_commands'
 VALID_LOG_LEVELS = ['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL']
 CONFIG_FILE = 'config/config.ini'
 DEFAULT_CONFIG_FILE = 'config/default_config.ini'
+DEFAULT_DB_FILE = 'database/default_db.txt'

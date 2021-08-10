@@ -28,9 +28,18 @@ def read_db(dbConfig):
         formatted_line = line.strip().split(dbConst.DB_DELIMITER)
         parsed_db.append(formatted_line)
         logger.debug('Reading DB - next line:' + str(formatted_line))
-
     db_file.close()
 
+    if len(parsed_db) == 0:
+        logger.warning('Database is empty, initializing default database...')
+        default_db_file = open(dbConst.DEFAULT_DB_FILE, 'r')
+        for line in default_db_file:
+            formatted_line = line.strip().split(dbConst.DB_DELIMITER)
+            parsed_db.append(formatted_line)
+            logger.debug('Reading Default DB - next line:' + str(formatted_line))
+        default_db_file.close()
+        
+        
     logger.debug('Parsed DB:' + str(parsed_db))
     return parsed_db
 
@@ -53,7 +62,7 @@ def generate_object_db_representation(dbConfig, parsed_db):
 
 
 # Write the current DB contents out back to the file
-def write_db(dbConfig, database, print_debug_statements=False):
+def write_db(dbConfig, database):
     db_file = open(dbConfig.filename, 'w')
     lines = []
     for item in database:

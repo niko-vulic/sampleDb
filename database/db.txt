@@ -1,4 +1,4 @@
-appleTwo,4,floot
-pear,5.5,uncategorized
+apple,4,fruit
 beet,5.5,veg
-appleThree,4,floot
+can,5.5,uncategorized
+pear,3.99,uncategorized

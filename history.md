@@ -1,3 +1,7 @@
+1.8
+---
+- Added a default_db.txt file to prevent database changes getting persisted into GIT and give a starting point if no DB file is found
+
 1.7.2
 ---
 - Simplified config, removed references to format and delimiter being user defined.

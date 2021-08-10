@@ -6,7 +6,7 @@ import config.dbConstants as dbConst
 
 USER_INPUT_INTRO = "Type 'exit' to quit or 'help' for a list of commands"
 USER_INPUT_GOODBYE = 'EXIT command received. Terminating...'
-HELP_COMMANDS_LIST = 'Available commands: exit, find, add, list, delete'
+HELP_COMMANDS_LIST = 'Available commands: exit, find, add, list, delete, config'
 
 HELP = 'help'
 EXIT = 'exit'
