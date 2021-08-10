@@ -1,3 +1,7 @@
+1.8.1
+---
+- Minor cleanup performed to prepare for gitHub
+
 1.8
 ---
 - Added a default_db.txt file to prevent database changes getting persisted into GIT and give a starting point if no DB file is found
