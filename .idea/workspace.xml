@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8633ca09-084e-4e68-aa8e-98c27019cbdc" name="Default Changelist" comment="1.8">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="8633ca09-084e-4e68-aa8e-98c27019cbdc" name="Default Changelist" comment="1.8.1">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/db.txt" beforeDir="false" afterPath="$PROJECT_DIR$/database/db.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,13 +158,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1615937729184</updated>
-    </task>
-    <task id="LOCAL-00001" summary="1.0">
-      <created>1623174694489</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1623174694489</updated>
     </task>
     <task id="LOCAL-00002" summary="1.0">
       <created>1623175498611</created>
@@ -489,7 +481,28 @@
       <option name="project" value="LOCAL" />
       <updated>1628633282431</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="1.8.1">
+      <created>1628633782548</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1628633782548</updated>
+    </task>
+    <task id="LOCAL-00049" summary="1.8.1">
+      <created>1628633815310</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1628633815310</updated>
+    </task>
+    <task id="LOCAL-00050" summary="1.8.1">
+      <created>1628633911693</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1628633911693</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -552,7 +565,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.2" />
     <MESSAGE value="1.2.1" />
     <MESSAGE value="1.2.2" />
     <MESSAGE value="1.2.3" />
@@ -577,7 +589,8 @@
     <MESSAGE value="1.7.1" />
     <MESSAGE value="1.7.2" />
     <MESSAGE value="1.8" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.8" />
+    <MESSAGE value="1.8.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.8.1" />
     <option name="UPDATE_GROUP_BY_PACKAGES" value="true" />
   </component>
 </project>
