@@ -1,3 +1,7 @@
+1.8.2
+---
+- Started using tags
+
 1.8.1
 ---
 - Minor cleanup performed to prepare for gitHub
