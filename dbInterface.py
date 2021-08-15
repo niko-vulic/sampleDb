@@ -1,6 +1,7 @@
 import config.configHandler
 import database.dbInputOutput as dbIo
 import control.userInputInterpreter
+import dbInterface
 
 
 class DbInterface:
@@ -32,3 +33,6 @@ class DbInterface:
         print('Committing config changes to disk')
         self.dbConfig.persist_config()
         print('--- Database Project V:' + str(self.version) + ' terminated ---')
+
+    if __name__ == "__main__":
+        dbi = dbInterface.DbInterface(True)

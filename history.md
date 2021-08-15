@@ -1,3 +1,7 @@
+1.8.3
+---
+- Added a main() method for easy running.
+
 1.8.2
 ---
 - Started using tags
